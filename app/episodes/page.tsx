@@ -1,16 +1,7 @@
+"use client";
 
-const EPISODES_URL = "https://rickandmortyapi.com/api/episode";
+import EpisodesPage from "@/components/views/EpisodesView"; 
 
-async function EpisodesPage() {
+const Page = () => <EpisodesPage />;
 
-    const episodes = await fetch(EPISODES_URL);
-    const episodesJson = await episodes.json();
-
-    return (
-        <div>EpisodesPage<br/>
-            {JSON.stringify(episodesJson)}
-        </div>
-    )
-}
-
-export default EpisodesPage
+export default Page

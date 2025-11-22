@@ -1,7 +1,7 @@
-// import export
-
-import Image from "next/image";
+import { Pagination, TextField } from "@mui/material";
+import CharacterCard from "./components/CharacterCard/CharacterCard";
 import { useEffect, useState } from "react";
+import { Character } from "@/types/character";
 
 async function getCharacters(page: number) {
     const res = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`, {
@@ -11,11 +11,11 @@ async function getCharacters(page: number) {
     if (!res.ok) throw new Error("Failed to fetch characters");
 
     return res.json();
-}   
+}
 
 const CharactersPage = () => {
     const [page, setPage] = useState(1);
-    const [characters, setCharacters] = useState([]); // add generic
+    const [characters, setCharacters] = useState<Character[]>([]);
 
     useEffect(() => {
     const fetchCharacters = async () => {
@@ -33,6 +33,7 @@ const CharactersPage = () => {
     return (
         <div style={{ padding: "20px" }}>
             <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Characters</h1>
+            <TextField fullWidth id="outlined-basic" label="Enter a character name" variant="outlined" />
 
             {/* CHARACTERS GRID */}
             <div
@@ -42,65 +43,16 @@ const CharactersPage = () => {
                     gap: "20px",
                 }}
             >
-                {characters.map((char: any) => (
-                    <div
-                        key={char.id}
-                        style={{
-                            border: "1px solid #ccc",
-                            borderRadius: "10px",
-                            padding: "10px",
-                            background: "#fff",
-                            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                        }}
-                    >
-                        <Image
-                            src={char.image}
-                            alt={char.name}
-                            width={300}
-                            height={300}
-                            style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-                        />
-
-                        <h2 style={{ margin: "10px 0 5px", fontSize: "20px" }}>{char.name}</h2>
-
-                        <p><strong>Status:</strong> {char.status}</p>
-                        <p><strong>Species:</strong> {char.species}</p>
-                        <p><strong>Location:</strong> {char.location.name}</p>
-                    </div>
+                {characters.map((char: Character) => (
+                    <CharacterCard key={char.id} char={char}/>
                 ))}
             </div>
 
-            {/* PAGINATION */}
-            <div
-                style={{
-                    marginTop: "30px",
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "15px",
-                }}
-            >
-                    <button
-                        style={{
-                            padding: "10px 20px",
-                            border: "1px solid #333",
-                            borderRadius: "6px",
-                        }}
-                        onClick={() => setPage(p => --p)}
-                    >
-                        ◀ Prev
-                    </button>
-
-                    <button
-                        style={{
-                            padding: "10px 20px",
-                            border: "1px solid #333",
-                            borderRadius: "6px",
-                        }}
-                        onClick={() => setPage(p => ++p)}
-                    >
-                        Next ▶
-                    </button>
-            </div>
+            <Pagination
+                count={42}
+                page={page}
+                onChange={(_, value) => setPage(value)}
+            />
         </div>
     );
 }

@@ -1,16 +1,7 @@
+"use client";
 
-const LOCATIONS_URL = "https://rickandmortyapi.com/api/location";
+import LocationsPage from "@/components/views/LocationsView"; 
 
-async function LocationsPage() {
+const Page = () => <LocationsPage />;
 
-    const locations = await fetch(LOCATIONS_URL);
-    const locationsJson = await locations.json();
-
-    return (
-        <div>LocationsPage<br/>
-            {JSON.stringify(locationsJson)}
-        </div>
-    )
-}
-
-export default LocationsPage
+export default Page
