@@ -1,3 +1,21 @@
+:root {
+    --bg: #0d0d0d;
+    --bg-secondary: #1a1a1a;
+    --card-bg: #222;
+    --text: #eaeaea;
+    --text-light: #bdbdbd;
+    --accent: #4ec3ff;
+    --radius: 18px;
+}
+
 body {
-    background-color: red;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
 }

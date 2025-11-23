@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "./NavBar";
+import NavBar from "../components/common/NavBar/NavBar";
 
 export const metadata: Metadata = {
   title: "Rick&Morty",
