@@ -67,7 +67,7 @@ const CharacterPage = ({ id }: { id: string }) => {
                 <div><strong>Location:</strong> {character.location.name}</div>
             </div>
 
-            <div className={styles.episodes}>
+            <div className={styles.array}>
                 <h2>Episodes</h2>
                 <div className={styles.grid}>
                     {episodes.map(ep => (

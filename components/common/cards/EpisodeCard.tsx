@@ -2,7 +2,7 @@ import { Episode } from "@/types/episode";
 import styles from "./Card.module.scss";
 import Link from "next/link";
 
-const CharacterCard = ({ ep }: { ep: Episode }) => {
+const EpisodeCard = ({ ep }: { ep: Episode }) => {
 
     return(
         <Link className={styles.card} href={`/episodes/${ep.id}`}>
@@ -15,4 +15,4 @@ const CharacterCard = ({ ep }: { ep: Episode }) => {
     );
 }
 
-export default CharacterCard;
+export default EpisodeCard;

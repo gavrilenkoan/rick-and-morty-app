@@ -2,7 +2,7 @@ import { Location } from "@/types/location";
 import Link from "next/link";
 import styles from "./Card.module.scss";
 
-const CharacterCard = ({ location }: { location: Location }) => {
+const LocationCard = ({ location }: { location: Location }) => {
 
     return(
         <Link className={styles.card} href={`/locations/${location.id}`}>
@@ -15,4 +15,4 @@ const CharacterCard = ({ location }: { location: Location }) => {
     );
 }
 
-export default CharacterCard;
+export default LocationCard;
