@@ -3,13 +3,13 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 177px);
-    background: var(--bg);
     color: var(--text);
     text-align: center;
     padding: 20px;
 
     .content {
         max-width: 800px;
+        padding: 40px;
     }
 
     h1 {
@@ -19,7 +19,7 @@
     }
 
     .gifWrapper {
-        margin: 20px 0;
+        margin: 40px 0;
     }
 
     p {
