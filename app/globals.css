@@ -4,15 +4,37 @@
   --card-bg: #222;
   --text: #eaeaea;
   --text-light: #bdbdbd;
-  --accent: #4ec3ff;
+  --border: #333;
+  --accent: #7dd618;
   --radius: 18px;
 }
 
+@font-face {
+  font-family: "Life Savers";
+  src: url("/fonts/LifeSavers-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Life Savers";
+  src: url("/fonts/LifeSavers-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Life Savers";
+  src: url("/fonts/LifeSavers-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
 body {
   background: var(--bg);
   color: var(--text);
   margin: 0;
-  font-family: Inter, sans-serif;
+  font-family: "Life Savers", Inter, sans-serif;
 }
 
 a {

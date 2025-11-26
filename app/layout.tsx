@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "../components/common/NavBar/NavBar";
+import NavBar from "@/components/common/NavBar/NavBar";
+import RMInitializer from "@/components/common/RMInitializer/RMInitializer";
 
 export const metadata: Metadata = {
   title: "Rick&Morty",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavBar />
+        <RMInitializer />
         <main>{children}</main>
       </body>
     </html>

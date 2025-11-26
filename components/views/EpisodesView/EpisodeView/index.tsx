@@ -17,7 +17,7 @@ const EpisodePage = ({ id } : { id: string }) => {
 
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div>
             <h1>{JSON.stringify(episode)}</h1>
         </div>
     );

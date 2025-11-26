@@ -1,60 +1,51 @@
-import { Pagination, TextField } from "@mui/material";
 import CharacterCard from "./components/CharacterCard/CharacterCard";
 import { useEffect, useState } from "react";
 import { Character } from "@/types/character";
-
-async function getCharacters(page: number) {
-    const res = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`, {
-        cache: "no-store",
-    });
-
-    if (!res.ok) throw new Error("Failed to fetch characters");
-
-    return res.json();
-}
+import styles from "./CharactersPage.module.css";
+import StyledTextField from "./components/StyledTextField/StyledTextField";
+import StyledPagination from "./components/StyledPagination/StyledPagination";
 
 const CharactersPage = () => {
     const [page, setPage] = useState(1);
     const [characters, setCharacters] = useState<Character[]>([]);
 
-    useEffect(() => {
-    const fetchCharacters = async () => {
-        try {
-            const data = await getCharacters(page);
-            setCharacters(data.results);
-        } catch (error) {
-            console.error("Error fetching characters:", error);
-        }
-    };
+    async function load() {
+        const res = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
+        const data = await res.json();
+        setCharacters(data.results);
+    }
 
-        fetchCharacters();
-    }, [page]);
+    useEffect(() => { load(); }, [page]);
 
     return (
-        <div style={{ padding: "20px" }}>
-            <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Characters</h1>
-            <TextField fullWidth id="outlined-basic" label="Enter a character name" variant="outlined" />
+        <div className={styles.wrapper}>
+            <div className={styles.header}>
+                <h1>Characters</h1>
+            </div>
 
-            {/* CHARACTERS GRID */}
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-                    gap: "20px",
-                }}
-            >
-                {characters.map((char: Character) => (
-                    <CharacterCard key={char.id} char={char}/>
+            <div className={styles.search}>
+                <StyledTextField
+                    fullWidth
+                    label="Search characters"
+                    variant="outlined"
+                />
+            </div>
+
+            <div className={styles.grid}>
+                {characters.map(char => (
+                    <CharacterCard key={char.id} char={char} />
                 ))}
             </div>
 
-            <Pagination
-                count={42}
-                page={page}
-                onChange={(_, value) => setPage(value)}
-            />
+            <div className={styles.pagination}>
+                <StyledPagination
+                    count={42}
+                    page={page}
+                    onChange={(_, v) => setPage(v)}
+                />
+            </div>
         </div>
     );
-}
+};
 
-export default CharactersPage
+export default CharactersPage;

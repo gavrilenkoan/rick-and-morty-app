@@ -17,7 +17,7 @@ const LocationPage = ({ id } : { id: string }) => {
 
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div>
             <h1>{JSON.stringify(location)}</h1>
         </div>
     );

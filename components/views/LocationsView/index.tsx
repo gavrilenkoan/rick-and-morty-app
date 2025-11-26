@@ -32,18 +32,15 @@ const LocationsPage = () => {
 
 
     return (
-        <div style={{ padding: "20px" }}>
-            <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Location</h1>
-            <TextField fullWidth id="outlined-basic" label="Enter location" variant="outlined" />
+        <div>
+            <h1>Location</h1>
+            {/* <TextField fullWidth id="outlined-basic" label="Enter location" variant="outlined" /> */}
+
+            {/* SEARCH OUTPUT */}
+            {/* <div></div> */}
 
             {/* LOCATION GRID */}
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-                    gap: "20px",
-                }}
-            >
+            <div>
                 {locations.map((location: Location) => (
                     <LocationCard key={location.id} location={location}/>
                 ))}

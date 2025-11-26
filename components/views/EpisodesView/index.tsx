@@ -32,18 +32,15 @@ const EpisodesPage = () => {
 
 
     return (
-        <div style={{ padding: "20px" }}>
-            <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Episodes</h1>
-            <TextField fullWidth id="outlined-basic" label="Enter an episode" variant="outlined" />
+        <div>
+            <h1>Episodes</h1>
+            {/* <TextField fullWidth id="outlined-basic" label="Enter an episode" variant="outlined" /> */}
+
+            {/* SEARCH OUTPUT */}
+            {/* <div></div> */}
 
             {/* EPISODES GRID */}
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-                    gap: "20px",
-                }}
-            >
+            <div>
                 {episodes.map((ep: Episode) => (
                     <EpisodeCard key={ep.id} ep={ep}/>
                 ))}

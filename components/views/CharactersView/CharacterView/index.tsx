@@ -17,7 +17,7 @@ const CharacterPage = ({ id } : { id: string }) => {
 
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div>
             <h1>{JSON.stringify(character)}</h1>
         </div>
     );
