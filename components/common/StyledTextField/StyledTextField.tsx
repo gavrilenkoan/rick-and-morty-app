@@ -20,7 +20,7 @@ const StyledTextField = styled(TextField)(() => ({
     },
 
     "&:hover .MuiOutlinedInput-notchedOutline": {
-        borderColor: "var(--border)",
+        borderColor: "var(--text-light)",
     },
 
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {

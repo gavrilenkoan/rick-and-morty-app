@@ -1,6 +1,6 @@
 import { Character } from "@/types/character";
 import Image from "next/image";
-import styles from "./CharacterCard.module.scss";
+import styles from "./Card.module.scss";
 import Link from "next/link";
 
 const CharacterCard = ({ char }: { char: Character }) => {

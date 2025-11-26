@@ -1,0 +1,30 @@
+.wrapper {
+    width: 75%;
+    margin: 40px auto;
+}
+
+.header {
+    margin-bottom: 24px;
+    font-weight: 900;
+}
+
+.grid {
+    margin-top: 30px;
+    display: grid;
+    gap: 22px;
+    grid-template-columns: repeat(1, 1fr);
+
+    @media (min-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.search {
+    margin: 20px 0;
+}
+
+.pagination {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+}

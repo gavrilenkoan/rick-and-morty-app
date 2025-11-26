@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import EpisodeCard from "@/components/views/EpisodesView/components/EpisodeCard/EpisodeCard";
+import EpisodeCard from "@/components/common/cards/EpisodeCard";
 import { Episode } from "@/types/episode";
 import styles from "./CharacterPage.module.scss";
 
