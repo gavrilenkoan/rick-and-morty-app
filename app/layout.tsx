@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./globals.scss";
 import NavBar from "@/components/common/NavBar/NavBar";
 import RMInitializer from "@/components/common/RMInitializer/RMInitializer";
 

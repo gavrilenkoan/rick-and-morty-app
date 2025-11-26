@@ -1,7 +1,7 @@
 import CharacterCard from "./components/CharacterCard/CharacterCard";
 import { useEffect, useState } from "react";
 import { Character } from "@/types/character";
-import styles from "./CharactersPage.module.css";
+import styles from "./CharactersPage.module.scss";
 import StyledTextField from "./components/StyledTextField/StyledTextField";
 import StyledPagination from "./components/StyledPagination/StyledPagination";
 

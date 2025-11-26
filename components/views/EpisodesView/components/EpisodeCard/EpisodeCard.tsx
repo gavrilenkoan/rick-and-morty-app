@@ -1,5 +1,6 @@
 import { Episode } from "@/types/episode";
 import { CardActionArea } from "@mui/material";
+import styles from "./EpisodeCard.module.scss";
 
 const CharacterCard = ({ ep }: { ep: Episode }) => {
 
