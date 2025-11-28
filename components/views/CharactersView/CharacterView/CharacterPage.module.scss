@@ -55,6 +55,10 @@
         display: grid;
         gap: 20px;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+        @media (max-width: 400px) {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
     }
 }
 
@@ -72,11 +76,5 @@
     .info {
         flex-direction: column;
         align-items: center;
-    }
-
-    .episodes {
-        .grid {
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        }
     }
 }

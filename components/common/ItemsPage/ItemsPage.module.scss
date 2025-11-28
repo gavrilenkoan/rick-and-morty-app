@@ -1,6 +1,10 @@
 .wrapper {
     width: 75%;
     margin: 40px auto;
+
+    @media (max-width: 400px) {
+        width: 85%;
+    }
 }
 
 .header {

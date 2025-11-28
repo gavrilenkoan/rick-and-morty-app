@@ -61,7 +61,7 @@ const LocationPage = ({ id }: { id: string }) => {
                 <h2>Residents</h2>
                 <div className={styles.grid}>
                     {residents.map(r => (
-                        <CharacterCard key={r.id} char={r} />
+                        <CharacterCard key={r.id} char={r} hideDetails={true} />
                     ))}
                 </div>
             </div>

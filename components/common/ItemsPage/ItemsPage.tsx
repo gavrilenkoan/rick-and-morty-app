@@ -9,6 +9,7 @@ import styles from "./ItemsPage.module.scss";
 import StyledTextField from "../../common/StyledTextField/StyledTextField";
 import StyledPagination from "../../common/StyledPagination/StyledPagination";
 import { ItemsType } from "@/types/itemsType";
+import { useRMStore } from "@/store/RickAndMortyStore";
 
 type ItemsMap = {
     [ItemsType.Characters]: Character[];
@@ -28,6 +29,20 @@ const ItemsPage = ({ itemsType, pagesAmount }: { itemsType: ItemsType; pagesAmou
 
     useEffect(() => { load(); }, [page]);
 
+    const [searchValue, setSearchValue] = useState("");
+
+    const allCharacters = useRMStore(state => state.allCharacters);
+    const allEpisodes = useRMStore(state => state.allEpisodes);
+    const allLocations = useRMStore(state => state.allLocations);
+
+    const source = itemsType === ItemsType.Characters ? allCharacters : itemsType === ItemsType.Episodes ? allEpisodes : allLocations;
+    const searchResults = source
+        .filter(i => {
+            if (searchValue.trim() === "") return false;
+            return i.name.toLowerCase().includes(searchValue.trim().toLowerCase());
+        })
+        .slice(0, 6);
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -39,7 +54,29 @@ const ItemsPage = ({ itemsType, pagesAmount }: { itemsType: ItemsType; pagesAmou
                     fullWidth
                     label={`Search ${itemsType.toLowerCase()}`}
                     variant="outlined"
+                    value={searchValue}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        setSearchValue(event.target.value);
+                    }}
                 />
+            </div>
+
+            <div className={styles.searchResults}>
+                {searchResults.map((i: any) => {
+                    switch (itemsType) {
+                        case ItemsType.Characters:
+                            return <CharacterCard key={i.id} char={i as Character} />;
+
+                        case ItemsType.Episodes:
+                            return <EpisodeCard key={i.id} ep={i as Episode} />;
+
+                        case ItemsType.Locations:
+                            return <LocationCard key={i.id} location={i as Location} />;
+
+                        default:
+                            return null;
+                    }
+                })}
             </div>
 
             <div className={styles.grid}>
@@ -65,6 +102,7 @@ const ItemsPage = ({ itemsType, pagesAmount }: { itemsType: ItemsType; pagesAmou
                     count={pagesAmount}
                     page={page}
                     onChange={(_, p) => setPage(p)}
+                    size="small"
                 />
             </div>
         </div>

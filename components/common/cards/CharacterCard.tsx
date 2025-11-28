@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Card.module.scss";
 import Link from "next/link";
 
-const CharacterCard = ({ char }: { char: Character }) => {
+const CharacterCard = ({ char, hideDetails = false }: { char: Character, hideDetails?: boolean}) => {
     return (
         <Link className={styles.card} href={`/characters/${char.id}`}>
             <div className={styles.cardImage}>
@@ -17,8 +17,12 @@ const CharacterCard = ({ char }: { char: Character }) => {
 
             <div className={styles.cardContent}>
                 <h2>{char.name}</h2>
-                <p><strong>Status:</strong> {char.status}</p>
-                <p><strong>Species:</strong> {char.species}</p>
+                {!hideDetails && (
+                    <>
+                        <p><strong>Status:</strong> {char.status}</p>
+                        <p><strong>Species:</strong> {char.species}</p>
+                    </>
+                )}
             </div>
         </Link>
     );

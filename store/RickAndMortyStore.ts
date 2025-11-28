@@ -5,7 +5,7 @@ interface RMState {
     allEpisodes: any[];
     allLocations: any[];
 
-    loaded: boolean;           // prevents refetching
+    loaded: boolean;
     loadAllData: () => Promise<void>;
 }
 
@@ -26,7 +26,7 @@ export const useRMStore = create<RMState>((set, get) => ({
     loaded: false,
 
     loadAllData: async () => {
-        if (get().loaded) return; // prevent fetching again
+        if (get().loaded) return;
 
         const [chars, eps, locs] = await Promise.all([
             fetchPages("https://rickandmortyapi.com/api/character", 42),

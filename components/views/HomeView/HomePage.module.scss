@@ -20,10 +20,32 @@
 
     .gifWrapper {
         margin: 40px 0;
+
+        img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
     }
 
     p {
         font-size: 1.2rem;
         margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    .home {
+        .content {
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
     }
 }

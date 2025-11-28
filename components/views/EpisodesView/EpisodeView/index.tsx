@@ -61,7 +61,7 @@ const EpisodePage = ({ id }: { id: string }) => {
                 <h2>Characters</h2>
                 <div className={styles.grid}>
                     {characters.map(ch => (
-                        <CharacterCard key={ch.id} char={ch} />
+                        <CharacterCard key={ch.id} char={ch} hideDetails={true} />
                     ))}
                 </div>
             </div>
